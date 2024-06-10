@@ -1,6 +1,6 @@
-import { View, Text, Image } from 'react-native'
-import React from 'react'
-import { Redirect, Slot } from 'expo-router'
+import { View, Text, Image, Pressable } from 'react-native'
+import React, { useCallback, useEffect } from 'react'
+import { Redirect, Slot, Stack } from 'expo-router'
 import { useAuth } from '@/hooks/auth'
 
 export default function AppLayout() {
@@ -10,12 +10,12 @@ export default function AppLayout() {
       <Redirect href="/login" />
     )
   }
+
   return (
     <>
-      <View>
-        <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
-        <Text>aa {token} aa</Text>
-      </View>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      </Stack>
     </>
   )
 }
